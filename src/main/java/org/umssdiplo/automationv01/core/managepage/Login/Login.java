@@ -13,12 +13,15 @@ public class Login extends BasePage {
     @FindBy(name = "password")
     private WebElement passwordInputField;
 
-    @FindBy(css = ".btn-primary.btn-block")
+    @FindBy(xpath = "//button[@class='btn btn-primary btn-block ladda-button fadeIn animated']")
     private WebElement loginBtn;
 
     public void setCredentials() {
         String username = PropertyAccessor.getInstance().getUser();
         String password = PropertyAccessor.getInstance().getPassword();
+        System.out.print(" username:  - > " + username);
+        System.out.print(" password:  - > " + password);
+        System.out.print(" usernameInputField:  - > " + usernameInputField);
         CommonEvents.setInputField(usernameInputField, username);
         CommonEvents.setInputField(passwordInputField, password);
         CommonEvents.clickButton(loginBtn);

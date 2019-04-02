@@ -19,6 +19,8 @@ public class ManageDriver {
         BrowserType driverType = BrowserType.valueOf(PropertyAccessor.getInstance().getBrowser());
         webDriver = DriverFactory.getManageDriver(driverType);
         webDriver.manage().window().maximize();
+        //Add
+        restorePreviousTimeWait();
     }
 
     public static ManageDriver getInstance() {
@@ -27,6 +29,7 @@ public class ManageDriver {
         }
         return instance;
     }
+
 
     public String getBaseUrl() {
         return BASE_URL;
