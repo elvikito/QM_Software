@@ -24,6 +24,7 @@ public class PropertyAccessor {
         }
     }
 
+    //to singleton
     public static PropertyAccessor getInstance(){
         if(PropertyAccessor == null){
             PropertyAccessor = new PropertyAccessor();
