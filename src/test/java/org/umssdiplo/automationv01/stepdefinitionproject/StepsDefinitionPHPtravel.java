@@ -9,6 +9,7 @@ import org.umssdiplo.automationv01.core.utils.LoadPage;
 public class StepsDefinitionPHPtravel {
     private Login login;
 
+
     @Given("^'SisSecurity' page is loaded$")
     public void phpTravelPageIsLoaded() throws Throwable {
         login = LoadPage.loginPage();

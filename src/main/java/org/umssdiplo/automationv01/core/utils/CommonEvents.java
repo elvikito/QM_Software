@@ -5,6 +5,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.umssdiplo.automationv01.core.customwebdriver.ManageDriver;
 
 import java.util.List;
@@ -21,6 +22,33 @@ public class CommonEvents {
         ManageDriver.getInstance().getWebDriverWait().until(ExpectedConditions.visibilityOf(webElement));
         webElement.clear();
         webElement.sendKeys(content);
+    }
+
+    /*
+    public static void setSelect(WebElement webElement, String content){
+        ManageDriver.getInstance().getWebDriverWait().until(ExpectedConditions.visibilityOf(webElement));
+        Select select = new Select(webElement);
+        select.selectByVisibleText(content);
+    }*/
+
+    public static void elementListClick(List<WebElement> lisWebElements, String elementList){
+        List<WebElement> listElement = lisWebElements;
+        if (listaEmpy(listElement)){
+            int i = 0;
+            boolean check = false;
+            while(i < listElement.size() && check == false) {
+                System.out.print("item : " + listElement.get(i));
+                if (elementList.equalsIgnoreCase(listElement.get(i).getText())){
+                    check = true;
+                    CommonEvents.clickButton(listElement.get(i));
+                }
+                i++;
+            }
+        }
+    }
+
+    private static boolean listaEmpy(List<WebElement> list){
+        return null != list && list.size() > 0;
     }
 
     /**
