@@ -1,7 +1,7 @@
 package org.umssdiplo.automationv01.core.utils;
 
 import org.umssdiplo.automationv01.core.customwebdriver.ManageDriver;
-import org.umssdiplo.automationv01.core.managepage.Area.Area;
+import org.umssdiplo.automationv01.core.managepage.Departament.Departament;
 import org.umssdiplo.automationv01.core.managepage.Login.Login;
 
 public final class LoadPage {
@@ -11,9 +11,9 @@ public final class LoadPage {
         return new Login();
     }
 
-    public static Area areaPage() {
+    public static Departament depatamentPage() {
         ManageDriver.getInstance().getWebDriver()
                 .navigate().to(PropertyAccessor.getInstance().getBaseUrl());
-        return new Area();
+        return new Departament();
     }
 }
