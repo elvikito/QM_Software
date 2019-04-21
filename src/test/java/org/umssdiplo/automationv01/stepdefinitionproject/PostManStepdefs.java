@@ -20,20 +20,20 @@ public class PostManStepdefs {
         response = HandleRequest.get(headerEndpoint);
     }
 
+    @Then("^the responde 'data' value is \"([^\"]*)\"$")
+    public void theRespondeDataValueIs(String esperado) throws Throwable {
+        String actual = response.body().jsonPath().get("data");
+        Assert.assertEquals(esperado, actual);
+    }
+
     @Then("^the status code should be (\\d+)$")
     public void theStatusCodeShouldBe(int statusCode) throws Throwable {
         assertEquals(response.getStatusCode(), statusCode);
     }
 
-    @Then("^the responde 'data' value is \"([^\"]*)\"$")
-    public void theRespondeDataValueIs(String esperado) throws Throwable {
-        String actual = response.getDataValue();
-
-        Assert.assertEquals(esperado, actual);
-    }
-
-    @Given("^POST \"([^\"]*)\" postman endpoint is configured$")
-    public void postPostmanEndpointIsConfigured(String arg0) throws Throwable {
-
+    @Given("^POST \"([^\"]*)\" postman endpoint is configured with \"([^\"]*)\" in body$")
+    public void postPostmanEndpointIsConfiguredWithInBody(String arg0, String arg1) throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        response = HandleRequest.post(arg0, arg1);
     }
 }
