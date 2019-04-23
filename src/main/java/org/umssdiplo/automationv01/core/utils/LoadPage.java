@@ -2,7 +2,7 @@ package org.umssdiplo.automationv01.core.utils;
 
 import org.umssdiplo.automationv01.core.customwebdriver.ManageDriver;
 import org.umssdiplo.automationv01.core.managepage.Login.Login;
-import org.umssdiplo.automationv01.core.managepage.Puma.Puma;
+import org.umssdiplo.automationv01.core.managepage.Adidas.Adidas;
 
 public final class LoadPage {
     public static Login loginPage() {
@@ -11,9 +11,9 @@ public final class LoadPage {
         return new Login();
     }
 
-    public static Puma loginPagePuma() {
+    public static Adidas loginPagePuma() {
         ManageDriver.getInstance().getWebDriver()
                 .navigate().to(PropertyAccessor.getInstance().getBaseUrlPuma());
-        return new Puma();
+        return new Adidas();
     }
 }
